@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>table | grid</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="stylesheet" href="pstyle.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+   @media screen and (max-width: 991px) {
+    .table-container {
+      overflow-x: auto !important;
+    }
+    .header-tab ul{
+      flex-direction: column;
+    }
+    .header-tab ul li a{
+      margin-right:0px;
+      margin-bottom:5px;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+      .dataTables_length{
+        text-align: left !important;
+        float:left !important;
+      }
+      .dataTables_wrapper .dataTables_filter{
+        text-align: right !important;
+        float: right !important;
+        margin-top:0px;
+      }
+  }
+</style>
+ 
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-12">
+          <div class="logo">
+            <h1>Logo</h1>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="header-tab">
+            <ul>
+              <li><a href="#home" class="tab-link active">Home</a></li>
+              <li><a href="#assets" class="tab-link">Assets</a></li>
+              <li>
+                <a href="#work-request" class="tab-link">Work Request</a>
+              </li>
+              <li><a href="#work-orders" class="tab-link">Work Orders</a></li>
+              <li><a href="#stores" class="tab-link">Stores</a></li>
+              <li>
+                <a href="#budget-forecast" class="tab-link">Budget Forecast</a>
+              </li>
+              <li>
+                <a href="#failure-analysis" class="tab-link">Failure Analysis</a>
+              </li>
+              <li>
+                <a href="#construction-units" class="tab-link">Construction Units</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-table">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8 grid-table-left">
+          <div class="name">
+            <h3>Welcome,Doe Mr. Jhon</h3>
+          </div>
+        </div>
+        <div class="col-md-4" style="width:fit-content;margin-left:auto">
+          <div class="btn-sec hvr-icon-wobble-horizontal">
+            <div class="drop-down" id="exportFormat">Export<i class="fa-solid fa-arrow-right drop-down-arrow hvr-icon "></i></div>
+            <div id="exportOptions">
+              <span id="pdfBtn">PDF <i class="fa-solid fa-file-pdf"></i></span>
+              <span id="excelBtn">Excel <i class="fa-solid fa-file-excel"></i> </span>
+            </div>
+            <!-- <select id="exportFormat">
+                  <option value="excel">Export as Excel</option>
+                  <option value="pdf">Export as PDF</option>
+                </select> -->
+            <!-- <div class="grid-table-btn">
+                <button onclick="exportData()">
+                  Export<i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="tab-content">
+        <div class="table-container active" id="home">
+          <table class="table table-bordered table-responsive" id="myTableHome">
+            <thead>
+              <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+                <th>Column 5</th>
+                <th>Column 6</th>
+                <th>Column 7</th>
+                <th>Column 8</th>
+                <th>Column 9</th>
+                <th>Column 10</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>Data 6</td>
+                <td>Data 7</td>
+                <td>Data 8</td>
+                <td>Data 9</td>
+                <td>Data 10</td>
+              </tr>
+              <tr>
+                <td>Data 11</td>
+                <td>Data 12</td>
+                <td>Data 13</td>
+                <td>Data 14</td>
+                <td>Data 15</td>
+                <td>Data 16</td>
+                <td>Data 17</td>
+                <td>Data 18</td>
+                <td>Data 19</td>
+                <td>Data 20</td>
+              </tr>
+              <tr>
+                <td>Data 21</td>
+                <td>Data 22</td>
+                <td>Data 23</td>
+                <td>Data 24</td>
+                <td>Data 25</td>
+                <td>Data 26</td>
+                <td>Data 27</td>
+                <td>Data 28</td>
+                <td>Data 29</td>
+                <td>Data 30</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+              <tr>
+                <td>Data 31</td>
+                <td>Data 32</td>
+                <td>Data 33</td>
+                <td>Data 34</td>
+                <td>Data 35</td>
+                <td>Data 36</td>
+                <td>Data 37</td>
+                <td>Data 38</td>
+                <td>Data 39</td>
+                <td>Data 40</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container" id="assets">
+          <table class="table table-bordered" id="myTableAssets">
+            <thead>
+              <tr>
+                <th>Asset Name</th>
+                <th>Category</th>
+                <th>Serial Number</th>
+                <th>Location</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Laptop</td>
+                <td>Electronics</td>
+                <td>SN123456</td>
+                <td>Office A</td>
+                <td>In Use</td>
+              </tr>
+              <tr>
+                <td>Projector</td>
+                <td>Electronics</td>
+                <td>SN789012</td>
+                <td>Conference Room B</td>
+                <td>Available</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container" id="work-request">
+          <table class="table table-bordered" id="myTableWorkRequest">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Task 1</td>
+                <td>Description 1</td>
+                <td>John Doe</td>
+                <td>In Progress</td>
+              </tr>
+              <tr>
+                <td>Task 2</td>
+                <td>Description 2</td>
+                <td>Jane Smith</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>Task 3</td>
+                <td>Description 3</td>
+                <td>Alice Johnson</td>
+                <td>Pending</td>
+              </tr>
+              <tr>
+                <td>Task 4</td>
+                <td>Description 4</td>
+                <td>Bob Williams</td>
+                <td>In Progress</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container" id="work-orders">
+          <table class="table table-bordered" id="myTableWorkOrders">
+            <thead>
+              <tr>
+                <th>Order Number</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>WO123</td>
+                <td>Repair Equipment</td>
+              </tr>
+              <tr>
+                <td>WO456</td>
+                <td>Install New Software</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container" id="stores">
+          <table class="table table-bordered" id="myTableStores">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Product A</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>Product B</td>
+                <td>30</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container" id="budget-forecast">
+          <table class="table table-bordered" id="myTableBudgetForecast">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Forecast Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Infrastructure</td>
+                <td>$100,000</td>
+              </tr>
+              <tr>
+                <td>Technology</td>
+                <td>$50,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container" id="failure-analysis">
+          <table class="table table-bordered" id="myTableFailureAnalysis">
+            <thead>
+              <tr>
+                <th>Issue</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>System Crash</td>
+                <td>Memory Overload</td>
+              </tr>
+              <tr>
+                <td>Network Failure</td>
+                <td>Router Issue</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container" id="construction-units">
+          <table class="table table-bordered" id="myTableConstructionUnits">
+            <thead>
+              <tr>
+                <th>Unit Name</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Unit 1</td>
+                <td>Site A</td>
+              </tr>
+              <tr>
+                <td>Unit 2</td>
+                <td>Site B</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+  <script>
+    function exportData(format) {
+      // var format = document.getElementById("exportFormat").value;
+      var tableId = $(".table-container.active table").attr("id");
+      var table = document.getElementById(tableId);
+
+      var tabName = $(".tab-link.active").text().toLowerCase();
+
+      if (format === "excel") {
+        var excelWorkbook = XLSX.utils.book_new();
+        var excelSheetData = XLSX.utils.table_to_sheet(table);
+        XLSX.utils.book_append_sheet(excelWorkbook, excelSheetData, "Sheet1");
+        XLSX.writeFile(excelWorkbook, tabName + "_data.xlsx");
+      } else if (format === "pdf") {
+        var doc = new jspdf.jsPDF();
+        doc.autoTable({ html: `#${tableId}` });
+
+        var pdfData = doc.output('bloburl');
+        window.open(pdfData, '_blank');
+        // window.open("_blank" , `#${tableId}` );
+        // pdfDoc.save(tabName + "_data.pdf");
+      }
+    }
+
+    $(document).ready(function () {
+      $(".tab-link").on("click", function (e) {
+        e.preventDefault();
+        var targetTab = $(this).attr("href");
+        $(".table-container").removeClass("active").hide();
+        $(targetTab).addClass("active").show();
+        $(".tab-link").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      // new DataTable("#myTableHome");
+      // $('#myTableHome').DataTable({
+      //   responsive: true,
+      //   orderCellsTop: true,
+
+      // });
+
+      new DataTable('#myTableHome',{
+           responsive:true,
+       
+      });
+    new DataTable('#myTableAssets', {
+          responsive: true,
+      
+     });
+     new DataTable("#myTableWorkRequest",{
+         responsive:true,
+       
+      });
+      new DataTable("#myTableWorkOrders",{
+          responsive:true,
+        
+      });
+      new DataTable("#myTableStores",{
+           responsive:true,
+       
+      });
+      new DataTable("#myTableFailureAnalysis",{
+              responsive:true,
+             
+      });
+      new DataTable("#myTableBudgetForecast",{
+              responsive:true,
+             
+      });
+      new DataTable("#myTableConstructionUnits",{
+                responsive:true,
+               
+      });
+
+
+      $("#exportFormat").click(
+        function (e) {
+          e.preventDefault();
+          $("#exportOptions").toggleClass("show");
+        }
+      )
+      $("#exportFormat").focusout(
+        function (e) {
+          $("#exportFormat").removeClass("show");
+        }
+      )
+
+      $("#pdfBtn").click(
+        function (e) {
+          exportData("pdf") //using jspdf
+          //printElement("myTableHome"); //using window.print()
+          $("#exportOptions").toggleClass("show");
+        }
+      )
+
+      $("#excelBtn").click(
+        function (e) {
+          exportData("excel")
+          $("#exportOptions").toggleClass("show");
+        }
+      )
+    });
+
+    function printElement(elementId) {
+      var element = document.getElementById(elementId);
+      element.classList.add("elementToPrint")
+      var originalContents = document.body.innerHTML;
+      var printContents = element.innerHTML;
+
+      document.body.appendChild(element);
+
+      window.print();
+      document.body.innerHTML = originalContents;
+      element.classList.remove("elementToPrint")
+    }
+  </script>
+</body>
+
+</html>
