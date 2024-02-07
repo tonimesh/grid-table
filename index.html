@@ -692,6 +692,12 @@
         }
       )
     });
+   $(document.body).click(function (e) {
+    var container = $("#exportOptions");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      container.removeClass("show");
+    }
+  });
 
     function printElement(elementId) {
       var element = document.getElementById(elementId);
