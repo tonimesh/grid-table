@@ -693,7 +693,7 @@
       )
     });
    $(document.body).click(function (e) {
-    var container = $("#exportOptions");
+    var container = $("#exportOptions")[0];
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       container.removeClass("show");
     }
